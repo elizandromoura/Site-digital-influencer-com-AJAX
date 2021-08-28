@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/estilo.css">    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" href="imagens2/heart_crown_princess_emoji_emo_icon_131636.ico" type="image/x-icon">
+
+    <script>
+      function requisitaPagina(url){
+
+      if(!document.getElementById('loading')){
+        let imgLoading = document.createElement('img')
+        imgLoading.id = 'loading'
+        imgLoading.src = 'imagens2/loading.gif'
+        imgLoading.className = 'rounded mx-auto d-block'
+        document.getElementById('conteudo').appendChild(imgLoading)
+      }
+        let ajax = new XMLHttpRequest();
+        ajax.open('GET', url)
+
+        ajax.onreadystatechange =() => {
+          if(ajax.readyState == 4){
+            document.getElementById('conteudo').innerHTML = ajax.responseText
+          }
+        }
+        ajax.send()
+        console.log(ajax)
+      }
+    </script>
+
+    <title>Thais Xavier Oficial</title>
+
+  </head>
+  <body class="corpo">
+    <header class="cabecalho">
+      <img src="imagens2/capa.png" class="capa">
+
+      <nav class="menu">
+        <ul>
+          <li>
+            <a href="index.html " class="menu__link">HOME</a>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link" onclick="requisitaPagina('conteudo/biografia.html')">BIOGRAFIA</a>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link"
+            onclick="requisitaPagina('conteudo/campanhas-publicitarias.html')">CAMPANHAS PUBLICITARIAS</a>
+          </li>
+          <li class="menu__item">
+            <a href="#" class="menu__link" onclick="requisitaPagina('conteudo/contato.html')">CONTATO</a>
+          </li>
+        </ul>
+      </nav>
+    </header>    
+    <main class="principal" id="conteudo">
+      <section class="conteudo">
+        <h1 class="titulo">Sobre Thais Xavier</h1>
+        <p class="conteudo__texto">"Você sabe que é feliz quando não quer adormecer pois a realidade é finalmente melhor que seus sonhos..."</p>      
+     </section><!--fim conteudo-->    
+    </main>
+    <footer class="rodape">
+      <p class="rodape__texto">Todos os direitos reservados.</p>
+     </footer>
+
+  </body>
+</html>
